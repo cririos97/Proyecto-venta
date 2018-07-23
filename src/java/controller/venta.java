@@ -22,9 +22,6 @@ public class venta extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int op = Integer.parseInt(request.getParameter("opc"));
             switch(op){
-                case 1:
-                    out.println(g.toJson(ve.NroVenta()));
-                break;
             }
         }
     }

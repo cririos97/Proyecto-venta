@@ -17,22 +17,6 @@ public class productoDaoImp implements productoDao{
     private CallableStatement cs;
     private ResultSet rs;
     private Connection cx;
-    @Override
-    public producto NroProd() {
-        producto p = new producto();
-        try {
-            cx = Conexion.getConexion();
-            cs = cx.prepareCall("{call NroProd()}");
-            rs = cs.executeQuery();
-            while(rs.next()){
-               p.setNroProd(rs.getInt(1));
-               
-            }
-        } catch (SQLException e) {
-            System.out.println("Error:"+ e);
-        }
-        return p;   
-    }
 
     @Override
     public List<producto> GrafProd7() {

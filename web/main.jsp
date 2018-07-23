@@ -19,6 +19,8 @@
     <link href="css/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/default-dark.css" id="theme" rel="stylesheet">
+    <script src="js/vue.js" type="text/javascript"></script>
+    <script src="js/axios.js" type="text/javascript"></script>
     <title>Menu Admin</title>
 </head>
 <body class="fix-header fix-sidebar card-no-border">
@@ -42,8 +44,7 @@
         </div>
     </div>
 
-    <div id="main-wrapper">
-
+    <div id="main-wrapper" >
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
@@ -205,7 +206,7 @@
                                     <div class="m-r-20 align-self-center"><img src="img/icon/cart.png" alt="Income" /></div>
                                     <div class="align-self-center">
                                         <h6 class="text-white m-t-10 m-b-0">Ventas totales</h6>
-                                        <h2 class="m-t-0 text-white" id="NroVentas"></h2></div>
+                                        <h2 class="m-t-0 text-white"> {{ ven }}</h2></div>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +218,7 @@
                                     <div class="m-r-20 align-self-center"><img src="img/icon/layers.png" alt="Income" /></div>
                                     <div class="align-self-center">
                                         <h6 class="text-white m-t-10 m-b-0">Productos totales</h6>
-                                        <h2 class="m-t-0 text-white" id="NroProd"></h2></div>
+                                        <h2 class="m-t-0 text-white">{{ prod }}</h2></div>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +242,7 @@
                                     <div class="m-r-20 align-self-center"><img src="img/icon/user.png" alt="Income" /></div>
                                     <div class="align-self-center">
                                         <h6 class="text-white m-t-10 m-b-0">Usuarios</h6>
-                                        <h2 class="m-t-0 text-white" id="NroUsers"></h2></div>
+                                        <h2 class="m-t-0 text-white">{{ usu }}</h2></div>
                                 </div>
                             </div>
                         </div>

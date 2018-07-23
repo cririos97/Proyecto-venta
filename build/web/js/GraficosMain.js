@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $.get("pr",{"opc":2},function (data) {
+    $.get("pr",{"opc":1},function (data) {
     var x = JSON.parse(data);
         
         var ctx2 = document.getElementById("chart").getContext("2d");

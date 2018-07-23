@@ -1,30 +1,38 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
 import com.google.gson.Gson;
-import dao.userDao;
-import daoImp.userDaoimp;
+import dao.mainDao;
+import daoImp.mainDaoImp;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author CRIRI
- */
-public class persona extends HttpServlet {
-
-    private userDao us = new userDaoimp();
-            private Gson g = new Gson();
+    
+public class main extends HttpServlet {
+    
+    private mainDao m = new mainDaoImp();
+    private Gson g = new Gson();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             int op = Integer.parseInt(request.getParameter("opc"));
-            switch(op){
+            switch (op){
+                case 1:
+                    HashMap<String, Object> datos = new HashMap<>();
+                    datos= m.DatosMain();
+                    out.print(g.toJson(datos));
+                break;
+                        
             }
         }
     }

@@ -38,21 +38,5 @@ public class userDaoimp implements userDao{
         return us;
     }
 
-    @Override
-    public user NroUser() {
-        user user = new user();
-        try {
-            cx = Conexion.getConexion();
-            cs = cx.prepareCall("{call NroUser()}");
-            rs = cs.executeQuery();
-            while(rs.next()){
-               user.setNroUser(rs.getInt(1));
-               
-            }
-        } catch (SQLException e) {
-            System.out.println("Error:"+ e);
-        }
-        return user;  
-    }
     
 }

@@ -20,6 +20,10 @@
         <servlet-name>persona</servlet-name>
         <servlet-class>controller.persona</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>controller.main</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
         <url-pattern>/lg</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>persona</servlet-name>
         <url-pattern>/prs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/mn</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -30,9 +30,6 @@ public class producto extends HttpServlet {
             int op = Integer.parseInt(request.getParameter("opc"));
             switch(op){
                 case 1:
-                    out.println(g.toJson(pr.NroProd()));
-                break;
-                case 2:
                     out.println(g.toJson(pr.GrafProd7()));
                 break;
             }

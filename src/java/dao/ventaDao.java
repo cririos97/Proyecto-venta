@@ -5,5 +5,4 @@ import entity.venta;
 
 
 public interface ventaDao {
-    venta NroVenta();
 }
