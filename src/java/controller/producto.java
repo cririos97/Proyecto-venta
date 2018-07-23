@@ -29,9 +29,6 @@ public class producto extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int op = Integer.parseInt(request.getParameter("opc"));
             switch(op){
-                case 1:
-                    out.println(g.toJson(pr.GrafProd7()));
-                break;
             }
 
         }

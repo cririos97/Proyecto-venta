@@ -1,0 +1,11 @@
+<%-- any content can be specified here e.g.: --%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/logoTitle.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="css/chartist.min.css" rel="stylesheet">
+    <link href="css/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/default-dark.css" id="theme" rel="stylesheet">

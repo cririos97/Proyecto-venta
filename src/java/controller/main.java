@@ -10,7 +10,9 @@ import dao.mainDao;
 import daoImp.mainDaoImp;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,11 @@ public class main extends HttpServlet {
                     datos= m.DatosMain();
                     out.print(g.toJson(datos));
                 break;
-                        
+                case 2:
+                    List<HashMap<String, Object>> ventas = new ArrayList<>();
+                    ventas=m.GrafRepMain();
+                    out.print(g.toJson(ventas));
+                break;                 
             }
         }
     }
