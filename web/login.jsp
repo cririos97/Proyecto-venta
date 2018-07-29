@@ -92,7 +92,7 @@
         </div>
     </section>
     <%
-    
+    RequestDispatcher rd;
     HttpSession sesion = request.getSession();
         int rol=0;
      if(request.getAttribute("rol")!=null){
@@ -106,7 +106,8 @@
              sesion.setAttribute("iduser", request.getAttribute("iduser"));
              sesion.setAttribute("user", request.getAttribute("user"));
              sesion.setAttribute("nomRol", request.getAttribute("nomRol"));
-             response.sendRedirect("main.jsp");
+             rd= request.getRequestDispatcher("main.jsp");
+             rd.forward(request, response);
          }
      }
         %>

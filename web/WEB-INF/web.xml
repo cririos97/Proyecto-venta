@@ -24,6 +24,14 @@
         <servlet-name>main</servlet-name>
         <servlet-class>controller.main</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pages</servlet-name>
+        <servlet-class>controller.pages</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>user</servlet-name>
+        <servlet-class>controller.user</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
         <url-pattern>/lg</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>main</servlet-name>
         <url-pattern>/mn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pages</servlet-name>
+        <url-pattern>/p</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>user</servlet-name>
+        <url-pattern>/us</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

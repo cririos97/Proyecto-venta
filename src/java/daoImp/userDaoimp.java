@@ -38,5 +38,37 @@ public class userDaoimp implements userDao{
         return us;
     }
 
+    @Override
+    public int addImgPerfil(int idu, String img) {
+        int x = 0;
+        try {
+            cx = Conexion.getConexion();
+            cs = cx.prepareCall("{call CargarImgPerfil(?,?)}");
+            cs.setInt(1, idu);
+            cs.setString(2, img);
+            x = cs.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error" + e);
+        }
+        return x;
+    }
+
+    @Override
+    public String devolveImgPerfil(int idu) {
+        String b=null;
+        try {
+            cx = Conexion.getConexion();
+            cs = cx.prepareCall("{call DevolverImgPerfil(?)}");
+            cs.setInt(1, idu);
+            rs = cs.executeQuery();
+            while(rs.next()){  
+                b = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error" + e);
+        }
+        return b;
+    }
+
     
 }
