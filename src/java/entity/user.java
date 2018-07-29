@@ -14,7 +14,24 @@ public class user {
     private String email;
     private String nomRol;
     private int NroUser;
-    
+    private String URLImg;
+    private int celular;
+
+    public int getCelular() {
+        return celular;
+    }
+
+    public void setCelular(int celular) {
+        this.celular = celular;
+    }
+
+    public String getURLImg() {
+        return URLImg;
+    }
+
+    public void setURLImg(String URLImg) {
+        this.URLImg = URLImg;
+    }
     
     public int getNroUser() {
         return NroUser;

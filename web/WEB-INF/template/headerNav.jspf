@@ -37,14 +37,15 @@
                         <!-- Perfil Card -->
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/users/1.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="imgPer" alt="user" width="35" height="30" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img src="img/users/1.jpg" alt="user"></div>
+                                            <div class="u-img"><img id="imgPe" alt="user" style="border-radius: 50px; width: 70px; height: 70px;"></div>
                                             <div class="u-text">
                                                 <h4>${sessionScope.nombreCom}</h4>
+                                                <input type="text" value="${sessionScope.iduser}" name="idu" id="idu" hidden/>
                                                 <p class="text-muted">${sessionScope.nomRol}</p><a href="p?page=perfil" class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a></div>
                                         </div>
                                     </li>

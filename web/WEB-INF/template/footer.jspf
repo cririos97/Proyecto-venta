@@ -7,3 +7,16 @@
     <script src="js/custom.min.js"></script>
     <script src="js/sidebar.min.js"></script>
     <script src="js/jQuery.style.switcher.js"></script>
+    <script>
+$(document).ready(function () {
+            ImgPerfilNav();
+});
+    function ImgPerfilNav(){
+    var idu = $("#idu").val();
+    $.get("us", {"idu": idu, "opc": 2}, function (data) {
+        var x = JSON.parse(data);
+        $("#imgPe").attr("src",x);
+        $("#imgPer").attr("src",x);
+    });
+}
+    </script>

@@ -33,7 +33,6 @@ public class user extends HttpServlet {
         HttpSession sesion = request.getSession();
         try (PrintWriter out = response.getWriter()) {
             int op = Integer.parseInt(request.getParameter("opc"));
-            int idu = Integer.parseInt(request.getParameter("idu")); 
             RequestDispatcher rd;
             switch(op){
                 case 1:
@@ -54,12 +53,18 @@ public class user extends HttpServlet {
                     is.close();
                     os.flush();
                     os.close();
-                    us.addImgPerfil(idu, URLImage); 
+                    us.addImgPerfil(Integer.parseInt(request.getParameter("idus")), URLImage); 
                     response.sendRedirect("perfil.jsp");
                     
                 break;
                 case 2:
-                    out.print(g.toJson(us.devolveImgPerfil(idu)));
+                    out.print(g.toJson(us.devolveImgPerfil(Integer.parseInt(request.getParameter("idu")))));
+                break;
+                case 3:
+                    out.print(g.toJson(us.DatosUser(Integer.parseInt(request.getParameter("idu")))));
+                break;
+                case 4:
+                    out.print(us.VerificarNomUser(request.getParameter("user")));
                 break;
             }
         }

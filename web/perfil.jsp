@@ -46,7 +46,7 @@
                                     <h4 class="card-title m-t-10">${sessionScope.nombreCom}</h4>
                                     <h6 class="card-subtitle">${sessionScope.nomRol}</h6>
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-8"><a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" class="link"><i class="icon-picture"></i> <font class="font-medium">Cambiar imagen perfil</font></a></div>
+                                        <div class="col-16 marg"><a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" class="link"><i class="icon-picture"></i> <font class="font-medium">Cambiar imagen perfil</font></a></div>
                                     </div>
                                 </center>
                             </div>
@@ -64,9 +64,9 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <label for="input-file-now-custom-1">Selecciona una imagen</label>
-                                                            <input type="file" id="imgPerfil" name="img" class="dropify" data-default-file="" />
+                                                            <input type="file" id="imgPerfil" name="img" class="dropify-fr" data-default-file="" />
                                                             <input type="hidden" value="1" name="opc">
-                                                            <input type="text" value="${sessionScope.iduser}" name="idu" id="idu" hidden/>
+                                                            <input type="text" value="${sessionScope.iduser}" name="idus" hidden/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,17 +79,11 @@
                                     </div>
                                 </div>
                             <div><hr></div>
-                            <div class="card-body"> <small class="text-muted">Email address </small>
-                                <h6>hannagover@gmail.com</h6> <small class="text-muted p-t-30 db">Phone</small>
-                                <h6>+91 654 784 547</h6> <small class="text-muted p-t-30 db">Address</small>
-                                <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
-                                <div class="map-box">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                </div> <small class="text-muted p-t-30 db">Social Profile</small>
-                                <br/>
-                                <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button>
-                                <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
-                                <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube"></i></button>
+                            <div class="card-body"> <small class="text-muted">Usuario</small>
+                                <h6 id="us"></h6> <small class="text-muted p-t-30 db">Email</small>
+                                <h6 id="email"></h6> <small class="text-muted p-t-30 db">Celular</small>
+                                <h6 id="cel"></h6> <small class="text-muted p-t-30 db">Direccion</small>
+                                <h6 id="dir"></h6>
                             </div>
                         </div>
                     </div>
@@ -100,8 +94,7 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs profile-tab" role="tablist">
                                 <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Timeline</a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Actualizar</a> </li>
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
@@ -161,99 +154,63 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--second tab-->
-                                <div class="tab-pane" id="profile" role="tabpanel">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
-                                                <br>
-                                                <p class="text-muted">Johnathan Deo</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
-                                                <br>
-                                                <p class="text-muted">(123) 456 7890</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
-                                                <br>
-                                                <p class="text-muted">johnathan@admin.com</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6"> <strong>Location</strong>
-                                                <br>
-                                                <p class="text-muted">London</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries </p>
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                        <h4 class="font-medium m-t-30">Skill Set</h4>
-                                        <hr>
-                                        <h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                        <h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="tab-pane" id="settings" role="tabpanel">
                                     <div class="card-body">
                                         <form class="form-horizontal form-material">
+                                            <div class="form-group m-t-40 row">
+                                                <div class="form-group col-md-6 m-t-20">
+                                                    <label class="col-md-6">Nombres</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" id="nom" class="form-control form-control-line">
+                                                    </div>
+                                                    </div>
+                                                <div class="form-group col-md-6 m-t-20">
+                                                    <label class="col-md-6">Apellidos</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" id="ape"  class="form-control form-control-line">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">Full Name</label>
+                                                <label class="col-md-12">DNI</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                    <input type="text" id="dni" class="form-control form-control-line" id="example-email">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="example-email" class="col-md-12">Email</label>
                                                 <div class="col-md-12">
-                                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                                    <input type="email" id="ema" class="form-control form-control-line" name="example-email" id="example-email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Celular</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" id="celu" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Direccion</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" id="dire" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div id="inU" class="form-group">
+                                                <label class="col-md-12">Usuario</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control form-control-line" id="user">
+                                                    <div id="message" style="display: none" class="form-control-feedback" >disponible.</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Password</label>
                                                 <div class="col-md-12">
-                                                    <input type="password" value="password" class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Phone No</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Message</label>
-                                                <div class="col-md-12">
-                                                    <textarea rows="5" class="form-control form-control-line"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-12">Select Country</label>
-                                                <div class="col-sm-12">
-                                                    <select class="form-control form-control-line">
-                                                        <option>London</option>
-                                                        <option>India</option>
-                                                        <option>Usa</option>
-                                                        <option>Canada</option>
-                                                        <option>Thailand</option>
-                                                    </select>
+                                                    <input type="password" id="passw" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <button class="btn btn-success">Update Profile</button>
+                                                    <button id="btn-go" class="btn btn-success">Actualizar perfil</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -273,17 +230,16 @@
         // Basic
         $('.dropify').dropify();
 
-        // Translated
+        // Personalizado upload
         $('.dropify-fr').dropify({
             messages: {
-                default: 'Glissez-déposez un fichier ici ou cliquez',
-                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                default: '<center>has click para subir una imagen de perfil</center>',
+                replace: 'has click para cambiar imagen',
                 remove: 'Suprimir',
-                error: 'Désolé, le fichier trop volumineux'
+                error: 'ocurrio un error!'
             }
         });
 
-        // Used events
         var drEvent = $('#input-file-events').dropify();
 
         drEvent.on('dropify.beforeClear', function(event, element) {
