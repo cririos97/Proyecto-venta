@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 
 public class Conexion {
-    private static final String URL = "jdbc:mysql://localhost:3306/plateria?zeroDateTimeBehavior=convertToNull";
+    private static final String URL = "jdbc:mysql://localhost:3306/plateria3?zeroDateTimeBehavior=convertToNull";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String USER = "root";
     private static final String PASS = "";

@@ -7,6 +7,7 @@ package controller;
 
 import dao.userDao;
 import daoImp.userDaoimp;
+import entity.user;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -29,18 +30,18 @@ public class login extends HttpServlet {
             RequestDispatcher rd = null;
             String user;
             String pass;
-            int rol;
+            user ses;
             if(request.getParameter("btn-login")!=null){
                 user=request.getParameter("user");
                 pass=request.getParameter("pass");
-                rol=ud.validar(user, pass).getRolId();
+                ses=ud.validar(user, pass);
    
-                request.setAttribute("rol", rol);
-                request.setAttribute("nombre",ud.validar(user, pass).getNombre());
-                request.setAttribute("apellido",ud.validar(user, pass).getApellidos());
-                request.setAttribute("iduser", ud.validar(user, pass).getUsuId());
-                request.setAttribute("user", ud.validar(user, pass).getUser());
-                request.setAttribute("nomRol", ud.validar(user, pass).getNomRol());
+                request.setAttribute("rol", ses.getRolId());
+                request.setAttribute("nombre",ses.getNombre());
+                request.setAttribute("apellido",ses.getApellidos());
+                request.setAttribute("iduser", ses.getUsuId());
+                request.setAttribute("user", ses.getUser());
+                request.setAttribute("nomRol", ses.getNomRol());
                 rd=request.getRequestDispatcher("login.jsp");
                 
             }

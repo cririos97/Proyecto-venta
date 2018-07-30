@@ -12,7 +12,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="main.jsp">
+                    <a class="navbar-brand" href="p?page=dashboard">
                         <b>
                             <!--Logo oscuro -->
                             <img src="img/logo-icon.png" alt="homepage" class="dark-logo" />
@@ -37,16 +37,16 @@
                         <!-- Perfil Card -->
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="imgPer" alt="user" width="35" height="30" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><label class="label">${sessionScope.user}</label> <img id="imgPer" alt="user" width="35" height="30" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img id="imgPe" alt="user" style="border-radius: 50px; width: 70px; height: 70px;"></div>
-                                            <div class="u-text">
-                                                <h4>${sessionScope.nombreCom}</h4>
+                                            <center><div class="u-img"><img id="imgPe" alt="user" style="border-radius: 50px; width: 70px; height: 70px;"></div> </center>
+                                            <center><div class="u-text" align="center">
+                                                <h4 id="nomCom">${sessionScope.nombreCom}</h4>
                                                 <input type="text" value="${sessionScope.iduser}" name="idu" id="idu" hidden/>
-                                                <p class="text-muted">${sessionScope.nomRol}</p><a href="p?page=perfil" class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a></div>
+                                                <p class="text-muted">${sessionScope.nomRol}</p><a href="p?page=perfil" class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a></div></center>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
@@ -74,7 +74,7 @@
                         <!-- Menu Venta -->
                         <h3 class="menu-title">Menu Principal</h3>
                         <ul class="sidebar-menu">
-                            <li><a href="main.jsp">Dashboard</a></li>
+                            <li><a href="p?page=dashboard">Dashboard</a></li>
                         </ul>
                     </div>
                 </li>

@@ -1,31 +1,8 @@
-/*$(document).ready(function(){
-        NroProd();
-        NroVent();
-        NroUser();
-});
-function NroProd(){
-    $.get("pr",{"opc":1},function (data) {
-       var x = JSON.parse(data);
-        $("#NroProd").text(x.NroProd);
-    });
-}
-function NroVent(){
-    $.get("vn",{"opc":1},function (data) {
-       var x = JSON.parse(data);
-        $("#NroVentas").text(x.RepNroVenta);
-    });
-}
-function NroUser(){
-    $.get("prs",{"opc":1},function (data) {
-       var x = JSON.parse(data);
-        $("#NroUsers").text(x.NroUser);
-    });
-} */
-
 var app = new Vue ({ 
   el: '#main-wrapper' ,
   created: function() {
       this.getDatos();
+      this.toastBienvenida();
   }, 
   data: { 
     prod: '', usu: '', ven: ''
@@ -36,9 +13,20 @@ var app = new Vue ({
                this.prod = response.data.prod;
                this.usu = response.data.usu;
                this.ven = response.data.ven;
-               //console.log(response)
            });
-       }
+       },
+       toastBienvenida: function(){
+         $.toast({
+            heading: 'Bienvenido <b>'+$("#nomCom").text()+'</b>',
+            text: 'Le deseamos un buen dia',
+            position: { left : 'auto', right : 40, top : 50, bottom : 'auto' },
+            loaderBg: '#f33c49',
+            icon: 'info',
+            hideAfter: 2500,
+            stack: 10,
+            loader: false
+        });   
+        }
    }
 });
 

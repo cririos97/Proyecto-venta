@@ -21,9 +21,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import entity.user;
 
 @MultipartConfig(maxFileSize = 16177215)
-public class user extends HttpServlet {
+public class usuario extends HttpServlet {
 
     private userDao us = new userDaoimp();
     private Gson g = new Gson();
@@ -33,16 +34,11 @@ public class user extends HttpServlet {
         HttpSession sesion = request.getSession();
         try (PrintWriter out = response.getWriter()) {
             int op = Integer.parseInt(request.getParameter("opc"));
-            RequestDispatcher rd;
             switch(op){
                 case 1:
                     InputStream is =null;
-                    String URLImage= "img\\users\\img-"+sesion.getAttribute("user")+".jpg";
+                    String URLImage= "img\\users\\img-"+sesion.getAttribute("iduser")+".jpg";
                     Part file = request.getPart("img");
-                    System.out.println(file);
-                    System.out.println(file.getName());
-                    System.out.println(file.getContentType());
-                    System.out.println(file.getSize());
                     is = file.getInputStream();
                     OutputStream os = new FileOutputStream("C:\\Users\\CRIRI\\OneDrive\\Documenti\\GitHub\\Proyecto-venta\\web\\"+URLImage);
                     byte[] buffer = new byte[1024];
@@ -65,6 +61,19 @@ public class user extends HttpServlet {
                 break;
                 case 4:
                     out.print(us.VerificarNomUser(request.getParameter("user")));
+                break;
+                case 5:
+                    user u = new user(Integer.parseInt(request.getParameter("idu")),
+                                            request.getParameter("user"),
+                                            request.getParameter("pass"),
+                                            request.getParameter("dire"),
+                                            request.getParameter("ema"),
+                                            Integer.parseInt(request.getParameter("cel")));
+                                            out.print(us.UpdateUser(u));
+                                            
+                break;
+                case 6:
+                    out.print(g.toJson(us.actividades(Integer.parseInt(request.getParameter("idu")))));
                 break;
             }
         }

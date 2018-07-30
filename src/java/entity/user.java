@@ -13,10 +13,21 @@ public class user {
     private String direccion;
     private String email;
     private String nomRol;
-    private int NroUser;
     private String URLImg;
     private int celular;
 
+    public user(int usuId, String user, String pass, String direccion, String email, int celular) {
+        this.usuId = usuId;
+        this.user = user;
+        this.pass = pass;
+        this.direccion = direccion;
+        this.email = email;
+        this.celular = celular;
+    }
+
+    public user() {     
+    }
+    
     public int getCelular() {
         return celular;
     }
@@ -33,14 +44,6 @@ public class user {
         this.URLImg = URLImg;
     }
     
-    public int getNroUser() {
-        return NroUser;
-    }
-
-    public void setNroUser(int NroUser) {
-        this.NroUser = NroUser;
-    }
-
     public String getDNI() {
         return DNI;
     }

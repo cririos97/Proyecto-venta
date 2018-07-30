@@ -5,6 +5,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/icons/logoTitle.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="css/jquery.toast.css" rel="stylesheet" type="text/css"/>
     <link href="css/chartist.min.css" rel="stylesheet">
     <link href="css/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
