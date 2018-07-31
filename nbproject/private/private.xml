@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/src/java/entity/user.java</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/src/java/dao/userDao.java</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/web/perfil.jsp</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/web/WEB-INF/template/headerNav.jspf</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/src/java/daoImp/userDaoimp.java</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/web/js/scriptPerfil.js</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/web/js/scriptMain.js</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/src/java/util/Conexion.java</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/src/java/controller/usuario.java</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/web/main.jsp</file>
-            <file>file:/C:/Users/CRIRI/OneDrive/Documenti/GitHub/Proyecto-venta/src/java/entity/actividades.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

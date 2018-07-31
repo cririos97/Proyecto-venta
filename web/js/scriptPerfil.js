@@ -42,7 +42,7 @@ function Actividades(){
         var x =JSON.parse(data);
         $("#act").children("div").remove();
         for (var i = 0; i < x.length; i++) {
-            $("#act").append("<div class='sl-right'><div><span><b>"+x[i].date+" - </b></span><label class='link'>"+x[i].evento+" </label> <span class='sl-date'> "+x[i].time+"</span></div></div>");
+            $("#act").append("<div class='sl-right'><div><span><b>"+x[i].date+" - </b></span><label class='link'>"+x[i].evento+"<span class='sl-date'> " +x[i].time+"</span> </label></div></div>");
         }
     });
 }

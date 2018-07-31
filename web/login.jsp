@@ -46,13 +46,6 @@
                             <div class="col-xs-12">
                                 <input class="form-control" type="password" required="" name="pass" placeholder="Contraseña"> </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <select class="form-control" style="text-align: center">
-                                    <option>Sede 1</option>
-                                    <option>Sede 2</option>
-                                </select>
-                        </div>
                         <div class="form-group row">
                             <div class="col-md-12">
                                  <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Olvidaste tu contraseña?</a> </div>
@@ -91,27 +84,6 @@
             </div>
         </div>
     </section>
-    <%
-    RequestDispatcher rd;
-    HttpSession sesion = request.getSession();
-        int rol=0;
-     if(request.getAttribute("rol")!=null){
-         rol = (Integer)request.getAttribute("rol");
-         if(rol==1){
-             sesion.setAttribute("rol", rol);
-             String nombres= (String) request.getAttribute("nombre")+" "+request.getAttribute("apellido");
-             sesion.setAttribute("nombreCom", nombres);
-             sesion.setAttribute("nombre", request.getAttribute("nombre"));
-             sesion.setAttribute("apellido", request.getAttribute("apellido"));
-             sesion.setAttribute("iduser", request.getAttribute("iduser"));
-             sesion.setAttribute("user", request.getAttribute("user"));
-             sesion.setAttribute("nomRol", request.getAttribute("nomRol"));
-             rd= request.getRequestDispatcher("main.jsp");
-             rd.forward(request, response);
-         }
-     }
-        %>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -119,7 +91,7 @@
             $(".preloader").fadeOut();
         });
         $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
         });
         // Login and Recover Password 
         $('#to-recover').on("click", function() {

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,14 +36,25 @@ public class login extends HttpServlet {
                 user=request.getParameter("user");
                 pass=request.getParameter("pass");
                 ses=ud.validar(user, pass);
-   
-                request.setAttribute("rol", ses.getRolId());
-                request.setAttribute("nombre",ses.getNombre());
-                request.setAttribute("apellido",ses.getApellidos());
-                request.setAttribute("iduser", ses.getUsuId());
-                request.setAttribute("user", ses.getUser());
-                request.setAttribute("nomRol", ses.getNomRol());
-                rd=request.getRequestDispatcher("login.jsp");
+                int rol = (Integer)ses.getRolId();
+                HttpSession sesion = request.getSession();
+                sesion.setMaxInactiveInterval(300);
+                if(rol!=0){
+                        if(rol==1){
+                             sesion.setAttribute("rol", rol);
+                             String nombres= (String) ses.getNombre()+" "+ses.getApellidos();
+                             sesion.setAttribute("nombreCom", nombres);
+                             sesion.setAttribute("nombre", ses.getNombre());
+                             sesion.setAttribute("apellido", ses.getApellidos());
+                             sesion.setAttribute("iduser", ses.getUsuId());
+                             sesion.setAttribute("user", ses.getUser());
+                             sesion.setAttribute("nomRol", ses.getNomRol());
+                             rd= request.getRequestDispatcher("main.jsp");
+                       }
+               }
+                else{
+                    rd= request.getRequestDispatcher("login.jsp");
+                }
                 
             }
             rd.forward(request, response);
