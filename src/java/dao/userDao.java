@@ -14,4 +14,5 @@ public interface userDao {
     String VerificarNomUser(String user);
     int UpdateUser(user u);
     List<actividades> actividades(int idu);
+    int verificarPassword(int idu, String pass);
 }

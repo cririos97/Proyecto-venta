@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-md-7 align-self-center">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="p?page=dashboard">Menu</a></li>
+                            <li class="breadcrumb-item"><a href="main.jsp">Menu</a></li>
                             <li class="breadcrumb-item active">Perfil</li>
                         </ol>
                     </div>
@@ -153,19 +153,20 @@
                                             <div id="inU" class="form-group">
                                                 <label class="col-md-12">Usuario</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control form-control-line" id="user">
-                                                    <div id="message" style="display: none" class="form-control-feedback" >disponible.</div>
+                                                    <input type="text" class="form-control form-control-line" id="user" onkeypress="return validaUserPass(event)" >
+                                                    <div id="message" style="display: none" class="form-control-feedback"></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group has-success">
                                                 <label class="col-md-12">Password</label>
                                                 <div class="col-md-12">
-                                                    <input type="password" id="passw" class="form-control form-control-line">
+                                                    <input type="password" id="passw" onkeypress="return validaUserPass(event)" class="form-control form-control-line" data-toggle="tooltip"  title="Por segurirdad su contraseña debe tener almenos 6 caracteres, 1 letra mayuscula y 1 numero">
+                                                    <div id="message2" style="display: none" class="form-control-feedback" >Correcto</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <button id="btn-go" class="btn btn-success">Actualizar perfil</button>
+                                                    <button id="btn-go" class="btn btn-success" disabled>Actualizar perfil</button>
                                                 </div>
                                             </div>
                                         </div>

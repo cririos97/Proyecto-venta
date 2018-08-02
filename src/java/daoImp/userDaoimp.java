@@ -160,5 +160,23 @@ public class userDaoimp implements userDao{
         return ac;
     }
 
+    @Override
+    public int verificarPassword(int idu, String pass) {
+        int x = 0;
+        try {
+            cx = Conexion.getConexion();
+            cs = cx.prepareCall("{call VerificarPassword(?,?)}");
+            cs.setInt(1, idu);
+            cs.setString(2, pass);
+            rs = cs.executeQuery();
+            while (rs.next()){
+                x = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error veriPass:" + e);
+        }
+        return x;
+    }
+
     
 }

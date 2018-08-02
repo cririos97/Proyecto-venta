@@ -17,19 +17,23 @@
 <body class="fix-header fix-sidebar card-no-border">
     <%
          HttpSession sesion = request.getSession();
+         String rol = sesion.getAttribute("rol").toString();
+         String est = sesion.getAttribute("estado").toString();
          if(sesion.getAttribute("rol")==null){
              response.sendRedirect("login.jsp");
-         }
-         else{
-             String rol = sesion.getAttribute("rol").toString();
-             if(!rol.equals("1")){
-                 response.sendRedirect("login.jsp");
+         }else{
+                if(!est.equals("1")){
+                    response.sendRedirect("lockscreen.jsp");
+                }else{
+                    if(!rol.equals("1")){
+                         response.sendRedirect("login.jsp");
              }
+                }
          }
             %>
         <%@include  file="WEB-INF/template/headerNav.jspf"%>
         <div class="page-wrapper">
-            
+          
             <div class="row hdr-nav-bar">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
@@ -174,7 +178,5 @@
     <script src="js/scriptMain.js" type="text/javascript"></script>
     <script src="js/GraficosMain.js"></script>
     <script src="js/Chart.min.js"></script>
-   <!--<script src="js/chartist.min.js"></script> -->
-   <!--<script src="js/chartist-plugin-tooltip.min.js"></script> -->
 </body>
 </html>

@@ -16,6 +16,7 @@ $(document).ready(function () {
     DatosUser();
 });
 var user;
+var pass;
 function DatosUser(){
     var idu = $("#idu").val();
     $.get("us", {"idu": idu, "opc": 3}, function (data) {
@@ -34,6 +35,7 @@ function DatosUser(){
         $("#user").val(x.user);
         $("#passw").val(x.pass);
         user=x.user;
+        pass=x.pass;
         Actividades();
     });
 }
@@ -54,6 +56,7 @@ $("#user").keyup(function(){
             $("#message").text("el usuario debe tener almenos 5 letras.");
             $("#message").css("display","block");
             $("#btn-go").attr("disabled",true);
+            setTimeout("$('#message').css('display','none')", 3000);
         }else{
             $.get("us", {"user": $("#user").val(), "opc": 4}, function (data) {
             if(data!=="null"){
@@ -61,43 +64,55 @@ $("#user").keyup(function(){
             $("#message").text("ya existe un usuario con este nombre.");
             $("#message").css("display","block");
             $("#btn-go").attr("disabled",true);
+            setTimeout("$('#message').css('display','none')", 3000);
         }else{
             $("#inU").removeClass("has-danger");
             $("#inU").addClass("has-success");
             $("#message").text("disponible");
             $("#message").css("display","block");
             $("#btn-go").attr("disabled",false);
+            setTimeout("$('#message').css('display','none')", 3000);
         }
         });
         }
-    }else{
-        $("#inU").removeClass("has-success");
-        $("#inU").removeClass("has-danger");
-        $("#message").css("display","none");
-        $("#btn-go").attr("disabled",false);
     }
 });
 $("#btn-go").click(function(){
         $.post("us",{"idu": $("#idu").val(),"user":$("#user").val(),"pass":$("#passw").val(),"dire": $("#dire").val() ,
         "ema": $("#ema").val(),"cel": $("#celu").val(),"opc": 5}, function (data) {
         if(data==="1"){
-            $.toast({
-          //  heading: 'Perfil actualizado',
-            text: 'Perfil actualizado',
-            position: 'top-right',
-            icon: 'success',
-            hideAfter: 3000,
-            stack: 6,
-            loader: false,
-            showHideTransition: 'slide'
+        swal({
+          title: 'Perfil actualizado',
+          type: 'success',
+          showConfirmButton: false,
+          timer: 2000
         });
         DatosUser();
+        $("#btn-go").attr("disabled",true);
         }
         else{if(data==="2"){
             $(location).attr('href','lgt');
         }
     }
     });
+});
+
+$("#ema,#celu,#dire,#passw").keyup(function(){
+    if($("#dire").val().length<10 || $("#ema").val().length<10 || $("#passw").val().length<6 || $("#celu").val().length<9){
+    $("#btn-go").attr("disabled",true);
+    }else{
+         var pswd = $("#passw").val();
+         if(pswd===pass){
+             $("#btn-go").attr("disabled",false);
+         }else{
+            if (pswd.match(/[A-Z]/) && pswd.match(/\d/)) {
+             $('#message2').css('display','block');
+             setTimeout("$('#message2').css('display','none')", 3000);
+             } else {
+                $("#btn-go").attr("disabled",true);
+             }
+         }
+    }   
 });
 function validaNum(e){
     tecla = (document.all) ? e.keyCode : e.which;
@@ -122,6 +137,19 @@ function validaLet(e){
         
     // Patron de entrada, en este caso solo acepta numeros
     patron =/[a-z,A-Z,ñ]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+function validaUserPass(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla===8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[a-z,A-Z,ñ,0-9]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }

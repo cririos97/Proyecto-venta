@@ -75,6 +75,10 @@ public class usuario extends HttpServlet {
                 case 6:
                     out.print(g.toJson(us.actividades(Integer.parseInt(request.getParameter("idu")))));
                 break;
+                case 7:
+                    out.print(us.verificarPassword(Integer.parseInt(request.getParameter("idu")), request.getParameter("pass")));
+                    sesion.setAttribute("estado", 1);
+                break;
             }
         }
     }

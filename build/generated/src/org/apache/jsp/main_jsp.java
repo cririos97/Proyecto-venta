@@ -69,6 +69,8 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <link href=\"css/chartist-plugin-tooltip.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link href=\"css/style.css\" rel=\"stylesheet\">\r\n");
       out.write("    <link href=\"css/default-dark.css\" id=\"theme\" rel=\"stylesheet\">\r\n");
+      out.write("    <script src=\"js/sweetalert2.all.min.js\" type=\"text/javascript\"></script>\r\n");
+      out.write("    <link href=\"css/sweetalert2.min.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
       out.write("\r\n");
       out.write("    <script src=\"js/vue.js\" type=\"text/javascript\"></script>\r\n");
       out.write("    <script src=\"js/axios.js\" type=\"text/javascript\"></script>\r\n");
@@ -78,14 +80,18 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    ");
 
          HttpSession sesion = request.getSession();
-         if(sesion.getAttribute("rol")==null){
+         String rol = sesion.getAttribute("rol").toString();
+         String est = sesion.getAttribute("estado").toString();
+         if(rol!="1" || rol!="2"){
              response.sendRedirect("login.jsp");
-         }
-         else{
-             String rol = sesion.getAttribute("rol").toString();
-             if(!rol.equals("1")){
-                 response.sendRedirect("login.jsp");
+         }else{
+                if(!est.equals("1")){
+                    response.sendRedirect("lockscreen.jsp");
+                }else{
+                    if(!rol.equals("1")){
+                         response.sendRedirect("login.jsp");
              }
+                }
          }
             
       out.write("\r\n");
@@ -104,7 +110,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <nav class=\"navbar top-navbar navbar-expand-md navbar-light\">\r\n");
       out.write("                <!-- Logo -->\r\n");
       out.write("                <div class=\"navbar-header\">\r\n");
-      out.write("                    <a class=\"navbar-brand\" href=\"p?page=dashboard\">\r\n");
+      out.write("                    <a class=\"navbar-brand\" href=\"main.jsp\">\r\n");
       out.write("                        <b>\r\n");
       out.write("                            <!--Logo oscuro -->\r\n");
       out.write("                            <img src=\"img/logo-icon.png\" alt=\"homepage\" class=\"dark-logo\" />\r\n");
@@ -146,7 +152,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\" name=\"idu\" id=\"idu\" hidden/>\r\n");
       out.write("                                                <p class=\"text-muted\">");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.nomRol}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</p><a href=\"p?page=perfil\" class=\"btn btn-rounded btn-danger btn-sm\">Ver Perfil</a></div></center>\r\n");
+      out.write("</p><a href=\"perfil.jsp\" class=\"btn btn-rounded btn-danger btn-sm\">Ver Perfil</a></div></center>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </li>\r\n");
       out.write("                                    <li role=\"separator\" class=\"divider\"></li>\r\n");
@@ -174,7 +180,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <!-- Menu Venta -->\r\n");
       out.write("                        <h3 class=\"menu-title\">Menu Principal</h3>\r\n");
       out.write("                        <ul class=\"sidebar-menu\">\r\n");
-      out.write("                            <li><a href=\"p?page=dashboard\">Dashboard</a></li>\r\n");
+      out.write("                            <li><a href=\"main.jsp\">Dashboard</a></li>\r\n");
       out.write("                        </ul>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </li>\r\n");
@@ -224,6 +230,26 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </li>\r\n");
       out.write("            </ul>\r\n");
       out.write("        </div>\r\n");
+      out.write("         <!-- modal sesion -->\r\n");
+      out.write("            <div id=\"idle-timeout-dialog\" data-backdrop=\"static\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\" style=\"display: none;\">\r\n");
+      out.write("                <div class=\"modal-dialog\">\r\n");
+      out.write("                    <div class=\"modal-content\">\r\n");
+      out.write("                        <div class=\"modal-header\">\r\n");
+      out.write("                            <h4 class=\"modal-title\">Atencion!</h4>\r\n");
+      out.write("                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"modal-body\">\r\n");
+      out.write("                            <p>\r\n");
+      out.write("                                <i class=\"fa fa-warning font-red\"></i> Tu sesion se va a bloquear en\r\n");
+      out.write("                                <span id=\"idle-timeout-counter\"></span> segundos.</p>\r\n");
+      out.write("                            <p> Quieres continuar tu sesion? </p>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"modal-footer text-center\">\r\n");
+      out.write("                            <button id=\"idle-timeout-dialog-keepalive\" type=\"button\" class=\"btn btn-success\" data-dismiss=\"modal\">Si, deseo continuar</button>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
       out.write("\r\n");
       out.write("        <div class=\"page-wrapper\">\r\n");
       out.write("            \r\n");
@@ -428,8 +454,9 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"js/scriptMain.js\" type=\"text/javascript\"></script>\r\n");
       out.write("    <script src=\"js/GraficosMain.js\"></script>\r\n");
       out.write("    <script src=\"js/Chart.min.js\"></script>\r\n");
-      out.write("   <!--<script src=\"js/chartist.min.js\"></script> -->\r\n");
-      out.write("   <!--<script src=\"js/chartist-plugin-tooltip.min.js\"></script> -->\r\n");
+      out.write("    <script src=\"js/session-timeout-idle-init.js\" type=\"text/javascript\"></script>\r\n");
+      out.write("    <script src=\"js/jquery.idletimer.js\" type=\"text/javascript\"></script>\r\n");
+      out.write("    <script src=\"js/jquery.idletimeout.js\" type=\"text/javascript\"></script>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

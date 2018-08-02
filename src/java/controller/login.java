@@ -28,7 +28,6 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            RequestDispatcher rd = null;
             String user;
             String pass;
             user ses;
@@ -49,15 +48,16 @@ public class login extends HttpServlet {
                              sesion.setAttribute("iduser", ses.getUsuId());
                              sesion.setAttribute("user", ses.getUser());
                              sesion.setAttribute("nomRol", ses.getNomRol());
-                             rd= request.getRequestDispatcher("main.jsp");
+                             sesion.setAttribute("estado", 1);
+                             response.sendRedirect("main.jsp");
                        }
                }
                 else{
-                    rd= request.getRequestDispatcher("login.jsp");
+                    response.sendRedirect("login.jsp");
                 }
                 
             }
-            rd.forward(request, response);
+         //   rd.forward(request, response);
         }
     }
 
